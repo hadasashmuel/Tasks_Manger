@@ -1,0 +1,41 @@
+.details-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.avatar-circle {
+  width: 80px;
+  height: 80px;
+  background: #e1effe;
+  color: #1e429f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.info-grid {
+  display: grid;
+  gap: 15px;
+  margin: 20px 0;
+  text-align: right;
+}
+
+.info-item {
+  padding: 10px;
+  background: #f8fafc;
+  border-radius: 6px;
+}
+
+.label {
+  color: #64748b;
+  font-size: 0.85rem;
+  display: block;
+}
+.value {
+  color: #1e293b;
+  font-weight: 500;
+}

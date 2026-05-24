@@ -1,0 +1,66 @@
+<div class="form-card">
+  <div class="header">
+    <h3> פרטי משימה</h3>
+  </div>
+  <form #addNewTasks="ngForm">
+    <div class="input-group">
+      <label for="name">שם משימה:</label>
+      <input
+        name="name"
+        class="form-input"
+        [(ngModel)]="tasks().name"
+        required
+        minlength="5"
+        #nameId="ngModel"
+        placeholder="שם"
+      />
+
+      @if (nameId.invalid && nameId.touched) 
+      {
+        @if (nameId.errors?.['minlength'])
+        {
+          <div class="error-message">שם המשימה חייב להיות לפחות 5 תווים.</div>
+        } 
+        @else if (nameId.errors?.['required']) 
+        {
+          <div class="error-message">שם המשימה הוא שדה חובה.</div>
+        }
+      }
+    </div>
+<div class="input-group">
+  <label for="description">תיאור המשימה:</label>
+  <textarea name="description" class="form-input" [(ngModel)]="tasks().description" required #descId="ngModel"></textarea>
+  @if (descId.invalid && descId.touched) {
+    <div class="error-message">תיאור הוא שדה חובה.</div>
+  }
+</div>
+
+<div class="input-group">
+  <label for="status">סטטוס המשימה:</label>
+  <select name="status" class="form-input" [(ngModel)]="tasks().status" required #statusId="ngModel">
+    <option value="InProgress">In Progress</option>
+    <option value="Done">Done</option>
+    <option value="Completed">Completed</option>
+  </select>
+</div>
+
+<div class="input-group">
+  <label for="dueDate">תאריך יעד:</label>
+  <input type="date" name="dueDate" class="form-input" [ngModel]="tasks().dueDate | date:'yyyy-MM-dd'" (ngModelChange)="tasks().dueDate = $event" required>
+</div>
+
+<div class="input-group">
+  <label for="grade">דרגת משימה:</label>
+  <select name="grade" class="form-input" [(ngModel)]="tasks().grade">
+    <option value="0">Grade A</option>
+    <option value="1">Grade B</option>
+    <option value="2">Grade C</option>
+  </select>
+</div>
+
+    <div class="footer-actions">
+      <button type="button" class="btn-save" (click)="save()"> שמור </button>
+      <button  type="button" class="btn-cancel" (click)="goToList()">ביטול</button>
+    </div>
+  </form>
+</div>

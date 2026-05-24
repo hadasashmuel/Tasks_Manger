@@ -1,0 +1,19 @@
+<div class="details-container">
+  <div class="avatar-circle">
+    {{ tasks().name[0] }}
+  </div>
+
+  <h3>{{ tasks().name }}</h3>
+
+<div class="details-card">
+  <h2>פרטי משימה</h2>
+  
+  <p><strong>שם המשימה:</strong> {{ tasks().name }}</p>
+  <p><strong>תיאור:</strong> {{ tasks().description }}</p>
+  <p><strong>סטטוס:</strong> {{ tasks().status }}</p>
+  <p><strong>דרגה:</strong> {{ tasks().grade }}</p>
+  <p><strong>תאריך יעד:</strong> {{ tasks().dueDate }}</p>
+
+  <button >חזור לרשימה</button>
+</div>
+</div>

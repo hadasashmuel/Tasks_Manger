@@ -1,0 +1,33 @@
+<div class="form-card">
+  <h3>עריכת פרטי משימה</h3>
+  
+  @if (editForm) {
+    <form [formGroup]="editForm" (ngSubmit)="submit()">
+      <div class="input-group">
+        <label>שם משימה:</label>
+        <input formControlName="name" class="form-input">
+      </div>
+
+      <div class="input-group">
+        <label>תיאור:</label>
+        <textarea formControlName="description" class="form-input"></textarea>
+      </div>
+
+      <div class="input-group">
+        <label>סטטוס:</label>
+        <select formControlName="status" class="form-input">
+          <option value="InProgress">In Progress</option>
+          <option value="Done">Done</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+
+      <div class="footer-actions">
+        <button type="submit" class="btn-save">שמור</button>
+        <button type="button" class="btn-cancel" (click)="goToList()">ביטול</button>
+      </div>
+    </form>
+  } @else {
+    <p>טוען נתונים...</p>
+  }
+</div>

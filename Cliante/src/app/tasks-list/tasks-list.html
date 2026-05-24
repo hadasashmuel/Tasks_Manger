@@ -1,0 +1,26 @@
+<div class="main-wrapper">
+  <div class="header">
+    <h2>רשימת המשימות שלי</h2>
+    <button class="add-btn" (click)="navigateNewTasks()">משימה חדשה +</button>
+  </div>
+
+  <div class="list-container">
+    @for (task of tasks(); track task.id) { 
+      <div class="tasks-item">
+        <span class="tasks-name">
+          <strong>{{ task.name }}</strong>
+        </span>
+        
+        <!-- התיאור הועבר לכאן, בתוך תיבת המשימה -->
+        <p class="task-description">{{ task.description }}</p>
+        
+        <div class="actions">
+     <button class="btn-details" (click)="navigateDetails(task); $event.stopPropagation()">פרטים</button>
+     <button class="btn-edit" (click)="navigateEdits(task); $event.stopPropagation()">עריכה</button>
+     </div>
+      </div>
+    }
+  </div>
+</div>
+
+
